@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. CAMBIO: El título de la pestaña ahora dice Deportes -->
+    <title>Registro de Deportes</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- 2. CAMBIO: El título principal ahora es de Deportes -->
+        <h2>Registrar un Deporte</h2>
+        
+        <form id="formulario">
+            
+            <div class="campo">
+                <!-- 3. CAMBIO: Antes decía "Nombre de la canción" -->
+                <label for="nombre">Nombre del deporte:</label>
+                <!-- 4. CAMBIO: El ID ahora es "nombre" y el ejemplo es de fútbol -->
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Fútbol, Baloncesto, Tenis...">
+                <!-- 5. CAMBIO: El ID del error ahora es "error-nombre" -->
+                <div id="error-nombre" class="texto-error">El nombre es requerido.</div>
+            </div>
+
+            <div class="campo">
+                <!-- 6. CAMBIO: Antes era "Género Musical" -->
+                <label for="categoria">Categoría:</label>
+                <!-- 7. CAMBIO: El ID ahora es "categoria" y las opciones son deportes -->
+                <select id="categoria" name="categoria">
+                    <option value="">-- Elige una --</option>
+                    <option value="Fútbol">Fútbol</option>
+                    <option value="Baloncesto">Baloncesto</option>
+                    <option value="Tenis">Tenis</option>
+                    <option value="Natación">Natación</option>
+                    <option value="Atletismo">Atletismo</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <div id="error-categoria" class="texto-error">Por favor selecciona una categoría.</div>
+            </div>
+
+            <div class="campo" id="campo-tipo">
+                <!-- 8. CAMBIO: Antes preguntaba si era Disco o Sencillo -->
+                <label>¿Es un deporte individual o de equipo?</label><br>
+                <!-- 9. CAMBIO: Los valores ahora son "Individual", "Equipo", "Mixto" -->
+                <input type="radio" id="opcion-individual" name="tipo" value="Individual">
+                <label for="opcion-individual">Individual</label>
+                <input type="radio" id="opcion-equipo" name="tipo" value="Equipo">
+                <label for="opcion-equipo">Equipo</label>
+                <input type="radio" id="opcion-mixto" name="tipo" value="Mixto">
+                <label for="opcion-mixto">Mixto (ambos)</label>
+                <div id="error-tipo" class="texto-error">Debes elegir una opción.</div>
+            </div>
+
+            <div class="campo">
+                <!-- 10. CAMBIO: Antes era "¿Por qué te gusta?" -->
+                <label for="descripcion">Descripción o motivo de interés:</label>
+                <!-- 11. CAMBIO: El ID ahora es "descripcion" -->
+                <textarea id="descripcion" name="descripcion" rows="4" placeholder="Cuéntanos por qué te gusta o cómo se practica..."></textarea>
+                <div id="error-descripcion" class="texto-error">Escribe al menos algo corto (5 letras).</div>
+            </div>
+
+            <div class="campo" id="campo-acepto">
+                <!-- Este checkbox NO cambia, funciona igual -->
+                <input type="checkbox" id="acepto" name="acepto">
+                <label for="acepto">Confirmo que los datos son correctos</label>
+                <div id="error-acepto" class="texto-error">Debes marcar esta casilla para guardar.</div>
+            </div>
+
+            <!-- Los botones no se tocan -->
+            <button type="reset" id="btnLimpiar">Limpiar Todo</button>
+            <button type="submit">Guardar Deporte</button>
+            
+        </form>
+    </div>
+
+    <!-- 12. CAMBIO: El título de la tabla ahora dice "Deportes Registrados" -->
+    <h2>Lista de Deportes Registrados</h2>
+    <table>
+        <thead>
+            <tr>
+                <!-- 13. CAMBIO: Los encabezados de la tabla ahora son de Deportes -->
+                <th>Deporte</th>
+                <th>Categoría</th>
+                <th>Tipo de práctica</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+            <tr id="sin-registros">
+                <td colspan="4" style="text-align:center; color: #999;">No hay deportes guardados aún.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
