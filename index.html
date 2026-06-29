@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración del Sistema - CyberPunk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CONEXIÓN_LIGA.EXE</h1>
+        <p>REGISTRO DE AGENTES Y ENTRENADORES DE ÉLITE</p>
+    </header>
+
+    <div class="container">
+        <section class="form-section">
+            <h2>[INGRESO_DE_DATOS]</h2>
+            <form id="pokemonForm" novalidate>
+                
+                <div class="form-group">
+                    <label for="nombre">> Identificación / Alias:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Neon_Ketchum">
+                    <span class="error-message" id="error-nombre"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="region">> Sector / Región:</label>
+                    <select id="region">
+                        <option value="">-- SELECCIONAR SECTOR --</option>
+                        <option value="Kanto">Sector Kanto-01</option>
+                        <option value="Johto">Sector Johto-02</option>
+                        <option value="Hoenn">Sector Hoenn-03</option>
+                        <option value="Sinnoh">Sector Sinnoh-04</option>
+                    </select>
+                    <span class="error-message" id="error-region"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>> Protocolo de Combate:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="estilo" value="Ofensivo"> <span>OFENSIVO_MAX</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="estilo" value="Defensivo"> <span>DEFENSIVO_PRO</span>
+                        </label>
+                    </div>
+                    <span class="error-message" id="error-estilo"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="biografia">> Manifiesto / Motivación:</label>
+                    <textarea id="biografia" rows="4" placeholder="Escribe el registro de tus intenciones en la red..."></textarea>
+                    <span class="error-message" id="error-biografia"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terminos"> 
+                        <span>Acepto transferir mis datos y cumplir las directivas de la red.</span>
+                    </label>
+                    <span class="error-message" id="error-terminos"></span>
+                </div>
+
+                <button type="submit" id="btnEnviar">INICIAR TRANSMISIÓN</button>
+            </form>
+        </section>
+
+        <section class="table-section">
+            <h2>[BASE_DE_DATOS_ACTUAL]</h2>
+            <div class="table-responsive">
+                <table id="tablaEntrenadores">
+                    <thead>
+                        <tr>
+                            <th>ALIAS</th>
+                            <th>SECTOR</th>
+                            <th>PROTOCOLO</th>
+                            <th>MANIFIESTO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="sin-datos">
+                            <td colspan="4" class="no-data-text">SISTEMA_VACÍO: Esperando transmisiones...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+:root {
+    --bg-dark: #0a0a0f;
+    --panel-bg: #12121a;
+    --neon-cyan: #00f0ff;
+    --neon-magenta: #ff0055;
+    --neon-yellow: #fffb00;
+    --text-color: #e0e0e6;
+    --error-color: #ff3333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Fondo con rejilla/textura retro futurista */
+    background-image: 
+        linear-gradient(rgba(18, 18, 26, 0.8) 0%, rgba(10, 10, 15, 0.95) 100%),
+        linear-gradient(90deg, rgba(255, 0, 85, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(255, 0, 85, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+    color: var(--text-color);
+    padding: 30px 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-cyan);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.2);
+    letter-spacing: 2px;
+}
+
+header p {
+    color: var(--neon-magenta);
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-top: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+    .container {
+        grid-template-columns: 1fr 1.3fr;
+    }
+}
+
+/* Paneles de Estilo Cyberpunk/Arcade */
+section {
+    background: var(--panel-bg);
+    padding: 30px;
+    border: 3px solid var(--neon-cyan);
+    box-shadow: 6px 6px 0px var(--neon-magenta);
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 25px;
+    color: var(--neon-yellow);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+}
+
+/* Inputs pesados y oscuros */
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #050508;
+    border: 2px solid #333344;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 0; 
+    transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+    background-color: #0c0c14;
+}
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 8px;
+}
+
+.radio-label, .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--neon-magenta);
+    width: 18px;
+    height: 18px;
+}
+
+.input-error {
+    border-color: var(--error-color) !important;
+    background-color: #240a0a !important;
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.4);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 6px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+button {
+    background: transparent;
+    color: var(--neon-yellow);
+    border: 2px solid var(--neon-yellow);
+    padding: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 0px rgba(255, 251, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--neon-yellow);
+    color: #000;
+    box-shadow: 0 0 15px var(--neon-yellow);
+}
+
+/* Tabla de Datos de Terminal */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* Espacio entre filas */
+    margin-top: 10px;
+}
+
+th {
+    background-color: #1a1a26;
+    color: var(--neon-cyan);
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--neon-cyan);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+td {
+    background-color: #0d0d14;
+    padding: 14px 12px;
+    border-top: 1px solid #222233;
+    border-bottom: 1px solid #222233;
+    font-size: 1.05rem;
+}
+
+td strong {
+    color: var(--neon-magenta);
+}
+
+tr:hover td {
+    background-color: #161622;
+    border-color: var(--neon-cyan);
+}
+
+.no-data-text {
+    text-align: center;
+    color: #555566;
+    font-style: italic;
+    padding: 30px 0;
+}
